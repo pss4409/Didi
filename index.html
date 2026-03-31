@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Didi jii ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #ffcad4, #ffe0f0, #fff0f5);
+    color: #1E90FF; /* Blue text for visibility */
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Subtle background hearts */
+.bg-hearts {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-image: radial-gradient(rgba(255,105,180,0.1) 2px, transparent 2px);
+    background-size: 50px 50px;
+    z-index: -1;
+}
+
+/* Sections */
+.section {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    display: none;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+    backdrop-filter: blur(4px);
+}
+
+.active {
+    display: block;
+    animation: fade 0.8s;
+}
+
+@keyframes fade {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+
+/* Buttons */
+button {
+    padding: 18px;
+    font-size: 18px;
+    border: none;
+    border-radius: 25px;
+    background: linear-gradient(45deg, #ff7eb9, #ff85c1);
+    color: white;
+    width: 80%;
+    max-width: 300px;
+    margin-top: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(255,105,180,0.3);
+}
+
+/* Gift & Cake */
+.gift { font-size: 90px; margin-top: 50px; cursor: pointer; }
+.cake { font-size: 80px; margin-top: 30px; }
+
+/* Gallery */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.gallery img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(255,105,180,0.3);
+}
+
+/* Letter */
+.letter {
+    background: #fff0f5;
+    color: #333;
+    padding: 20px;
+    margin: 20px auto;
+    border-radius: 15px;
+    max-width: 90%;
+    box-shadow: 0 0 20px rgba(255,105,180,0.4);
+    font-family: 'Courier New', cursive;
+    text-align: left;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+/* Glow headings */
+h1, h2 {
+    text-shadow: 0 0 10px rgba(30,144,255,0.8);
+}
+
+/* Thank You page styling */
+#section4 h1 {
+    font-size: 40px;
+    text-shadow: 0 0 15px rgba(30,144,255,0.8);
+    margin-top: 50px;
+}
+
+#section4 p {
+    font-size: 20px;
+    margin-top: 20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg-hearts"></div>
+
+<!-- Background music -->
+<audio id="bgMusic" loop>
+  <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+<!-- 🎁 Gift Section -->
+<div id="section1" class="section active">
+    <h1>Happy Birthday ❤️</h1>
+    <p>Tap the gift 🎁</p>
+    <div class="gift" onclick="openGift()">🎁</div>
+    <div id="cake" style="display:none;">
+        <div class="cake">🎂</div>
+        <h2>Happy Birthday Didii 💖</h2>
+        <button onclick="next(2)">Next ➡️</button>
+    </div>
+</div>
+
+<!-- 📸 Photos Section -->
+<div id="section2" class="section">
+    <h2>Madam jii ❤️</h2>
+    <div class="gallery">
+        <img src="photo1.jpg">
+        <img src="photo2.jpg">
+        <img src="photo3.jpg">
+        <img src="photo4.jpg">
+        <img src="photo5.jpg">
+        <img src="photo6.jpg">
+        <img src="photo7.jpg">
+        <!-- Add all your photos here -->
+    </div>
+    <button onclick="next(3)">Next ➡️</button>
+</div>
+
+<!-- 💌 Love Letter Section -->
+<div id="section3" class="section">
+    <h2>My Letter For You 💌</h2>
+    <div class="letter">
+        <p id="typingText"></p>
+    </div>
+    <button onclick="startTyping(); this.style.display='none'; document.getElementById('nextButton').style.display='block'">
+        Open Letter 💖
+    </button>
+    <button id="nextButton" onclick="next(4)" style="display:none;">
+        Next ➡️
+    </button>
+</div>
+
+<!-- 🙏 Thank You Section -->
+<div id="section4" class="section">
+    <h1>Thank you ❤️</h1>
+    <p>Hope you have a special birthday! 💖</p>
+</div>
+
+<script>
+// Gift click: show cake + start music
+function openGift() {
+    document.querySelector(".gift").style.display = "none";
+    document.getElementById("cake").style.display = "block";
+    document.getElementById("bgMusic").play();
+}
+
+// Move to next section
+function next(n) {
+    document.querySelectorAll(".section").forEach(s => s.classList.remove("active"));
+    document.getElementById("section"+n).classList.add("active");
+}
+
+// Typing effect for love letter
+const message = `Meri BESTEST FRIEND AND DIDI ❤️,
+
+Happy Birthday to THE BESTEST BUDDHU... YOU ARE LITERALLY THE BESTEST SISTER OF THE WORLD AND MY BESTEST FRIEND... Happy Birthday 🫶🤍... Hamesha ese hi rehna, ekdam strong, independent women (Meri Iron lady 💕)... Thode khush ho jao please, thoda life enjoy karo, aap ese dukhi hurt hue ache nhi lagte... Be positive, sab sahi hoga... And just enjoy, kyunki apne haath me to kuch bhi hai nhi... And agar kabhi koii help chahiye ho to mujhe bol dena, me nhi karunga help 😝... Meri pyari si bhondu behen ekdam BESTEST hai... The BESTEST GIRL OF THE WORLD (mtlb aap aur divyanshi dono, shared title hai 😅)... And once again , Happy Birthday meri princess 💝🫶... Always stay happy, enjoy and fulfill all your dreams 🫶
+`;
+
+let i;
+function startTyping() {
+    i = 0;
+    const speed = 40;
+    const textElement = document.getElementById("typingText");
+    textElement.innerHTML = "";
+    function type() {
+        if (i < message.length) {
+            textElement.innerHTML += message.charAt(i);
+            i++;
+            setTimeout(type, speed);
+        }
+    }
+    type();
+}
+</script>
+
+</body>
+</html>
